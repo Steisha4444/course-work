@@ -1,0 +1,27 @@
+
+.firstCloud{
+    width: 140%;
+    z-index: 3;
+    background: none;
+}
+.secondCloud{
+    width: 100%;
+    z-index: 3;
+    background: none;
+}
+html, body {margin: 0;}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 35% 15%  49%;
+  }
+  .moon{
+    /* margin-right: 90%; */
+    width: 220%;
+    opacity: 0.94;
+    z-index: 1;
+   
+}
+   
+
+  

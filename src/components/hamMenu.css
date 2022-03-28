@@ -1,0 +1,117 @@
+.menubtn {
+    display: flex; /* используем flex для центрирования содержимого */
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: absolute; 
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1000;
+    top: 5px;
+	position:fixed;
+  }
+  #menutoggle {
+    opacity: 0;
+    position: fixed;
+  }
+  /* добавляем "гамбургер" */
+.menubtn > span,
+.menubtn > span::before,
+.menubtn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  z-index: 5;
+  
+}
+
+.menubtn > span::before {
+  content: '';
+  top: -8px;
+}
+.menubtn > span::after {
+  content: '';
+  top: 8px;
+}
+
+/* контейнер меню */
+.menubox {
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 10%;
+    height: 20%;
+    padding: 30px 0 10px 0 ;
+    list-style: none;
+    text-align: center;
+    background-color: #151C1A;
+    z-index: 5;
+    position:fixed;
+  }
+  
+  /* элементы меню */
+  .menuitem {
+    display: block;
+    padding: 10px 24px;
+    color: #333;
+    font-family: cursive;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Papyrus;
+    text-decoration: none;
+    z-index: 5;
+    position:fixed;
+  }
+  .menuitem:hover {
+    background-color: #cfd8dc55;
+    z-index: 5;
+  }
+  #menutoggle:checked ~ .menubtn > span {
+    transform: rotate(45deg);
+  }
+  #menutoggle:checked ~ .menubtn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #menutoggle:checked ~ .menubtn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menutoggle:checked ~ .menubox {
+    visibility: visible;
+    left: 0;
+
+  }
+  a:hover, a:visited, a:link, a:active
+{   color: #ffffff;
+    text-decoration: none;
+}
+  .menubtn > span,
+.menubtn > span::before,
+.menubtn > span::after {
+  transition-duration: .25s;
+  
+
+}
+.menubox {
+  transition-duration: .25s;
+}
+.menuitem {
+  transition-duration: .25s;
+}
+.hamburger-menu{
+   top: 0;
+    font-size: 17px;
+    font-family: cursive;
+}
+@media screen and (max-width: 600px) {
+    .hamburger-menu, .menubox   {
+      font-size: 7px;
+     
+      width: 70px;
+    }
+  }
+ 

@@ -1,0 +1,107 @@
+
+
+.bookCover {
+    float: left;
+    height: 30vw;
+    width: 30vw;
+    margin-right: 6vw;
+    margin-bottom: 4vw;
+    object-fit: cover;
+    justify-content: center;
+    object-position: left;
+    filter:none;
+}
+.moon2{
+opacity: 0;
+}
+.bookTitle {
+    background-color: transparent;
+    width: 100%;
+    font-size: 3vw;
+    margin-top:5vw;
+
+}
+.authorPhoto{
+    border-radius: 50%;
+    height: 5vw;
+    width: 5vw;
+    padding-left: 0%;
+    filter:none;
+    object-fit: cover;
+    object-position: top;
+    float: left;
+    margin-right: 2vw;
+    margin-bottom: 2vw;
+    margin-left: 30vw;
+    filter: grayscale(1);
+    
+}
+.bookAuthor{
+    width: 115%;
+    background-color: transparent;
+    right: 0vw;
+    justify-content: right;
+    font-size: 2vw;
+    padding-top: 1.5vw ;
+    
+}
+.author{
+    background-color: transparent;
+    right: 0vw;
+    top:1vw;
+    
+}
+.bookLevel, .bookPages, .bookRating{
+    float: left;
+    font-size: 1.7vw;
+    background-color: transparent;
+    margin-top:5vw;
+    margin-left: 2vw;
+}
+.bookPages{
+
+ float: left;
+    font-size: 1.7vw;
+    margin-right: 2vw;
+}
+.book {
+
+    margin-top: -12vw;
+    background-color: transparent;
+    height: 100%;
+    z-index: 4;
+    width: 80%;
+    margin-left: 7%;
+    position: absolute;
+}
+
+
+.bookDescription {
+    width: 80vw;
+    line-height: 1.5;
+    font-size: 1.7vw;
+    background-color: transparent;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: block;
+    margin-top: 5vw;
+    margin-right: 0;
+    margin-bottom:5vw ;
+
+}
+
+.rowInfo {
+    background-color: transparent;
+    position: absolute;
+    margin-left: 35vw;
+}
+
+.rectangle {
+    margin-top: -17vw;
+    background-color: black;
+    height: 40vw;
+    z-index: 4;
+    width: 50vw;
+    margin-left: 25%;
+    position: absolute;
+}
