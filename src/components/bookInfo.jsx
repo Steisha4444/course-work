@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from "./Header";
 import './bookInfo.css';
 import clouds from '../assets/clouds.png';
 import clouds3 from '../assets/clouds2.png';
 import moon from '../assets/moon2.png';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import HamMenu from "./hamMenu";
 
 function BookInfo(props) {
 
 
     return (
         <div>
+            <HamMenu />
             <div class="wrapper">
-
                 <img src={clouds} class="firstCloud" />
                 <img src={moon} class="moon2" />
                 <img src={clouds3} class="secondCloud" />
@@ -25,12 +25,12 @@ function BookInfo(props) {
                 <img className="bookCover" src={require(`../books/${props.location.state.bookName}.jpg`).default} alt="" />
                 <h1 className="bookTitle">{props.location.state.bookName}</h1>
                 <Link to={{
-                                                                        pathname: "/text",
-                                                                        state: props.location.state
-                                                                }}
-                                                                >
-                                                                        Read {props.location.state.bookName}
-                                                                </Link>
+                    pathname: "/text",
+                    state: props.location.state
+                }}
+                >
+                    <p className="read">Read {props.location.state.bookName}</p>
+                </Link>
                 <h2 className="bookDescription">{props.location.state.Description}</h2>
 
                 <div className="author">
@@ -48,7 +48,5 @@ function BookInfo(props) {
         </div>
     );
 }
-
-
 export default BookInfo;
 

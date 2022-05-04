@@ -8,6 +8,8 @@ import Header from "./Header";
 import News from "./news";
 import './theme.css'
 
+import BookSlider from "./BookSlider";
+
 function Main(){
 
     return (
@@ -15,6 +17,7 @@ function Main(){
          
            <Header/> 
            <News/>
+           <BookSlider/>
         </div>
     );
     

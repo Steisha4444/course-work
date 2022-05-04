@@ -1,8 +1,8 @@
-import React, { Component, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import "./Database.css";
-import BookInfo from "../bookInfo";
 import Axios from "axios";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import HamMenu from "../hamMenu";
 
 
 
@@ -18,15 +18,18 @@ function DataBase() {
         const [publicationDate, setPublicationDate] = useState('');
         const [pages, setPages] = useState('');
         const [rating, setRating] = useState('');
-        const [ type, setType] = useState('');
+        const [type, setType] = useState('');
         const [genres, setGenres] = useState('');
         // const [bookNameList, levelList,authorList, descriptionList, contextEnList,contextUaList] = useState([]);
         const [bookNameList, setBookNameList] = useState([]);
+        const [toDisplayBookNameList, setToDisplayBookNameList] = useState([]);
+        const [filters, setFilters] = useState([]);
 
 
         useEffect(() => {
                 Axios.get('http://localhost:3001/api/get').then((response) => {
                         setBookNameList(response.data)
+                        setToDisplayBookNameList(response.data)
                 });
         }, []);
 
@@ -48,64 +51,36 @@ function DataBase() {
                         alert("successful insert");
                 })
         };
-
+    
+        const handleCheckboxChange = (event) => {
+                if( filters.includes(event.target.id)){
+                        const index = filters.indexOf(event.target.id);
+                        filters.splice(index, 1);
+                }
+                else{
+                filters.push(event.target.id);
+                }
+              console.log( filters );
+                let newArray = bookNameList.filter( e => filters.includes(e.level));
+                setToDisplayBookNameList(newArray);
+        };
+        
         return (
-
-                <div>
-                        <h1>CRUD opperations</h1>
-                        <div className="form">
-                                <label>Name</label>
-                                <input type="text" name="bookName" onChange={(e) => {
-                                        setBookName(e.target.value)
-                                }} />
-                                <label>Level</label>
-                                <input type="text" name="level" onChange={(e) => {
-                                        setLevel(e.target.value)
-                                }} />
-                                <label>Author</label>
-                                <input type="text" name="author" onChange={(e) => {
-                                        setAuthor(e.target.value)
-                                }} />
-                                <label>Description  </label>
-                                <input type="text" name="description" onChange={(e) => {
-                                        setDescription(e.target.value)
-                                }} />
-                                <label>English Text</label>
-                                <input type="text" name="contextEn" onChange={(e) => {
-                                        setContextEn(e.target.value)
-                                }} />
-                                <label>Ukrainian Text</label>
-                                <input type="text" name="contextUa" onChange={(e) => {
-                                        setContextUa(e.target.value)
-                                }} />
-                                 <label>Publication Date</label>
-                                <input type="text" name="publicationDate" onChange={(e) => {
-                                        setPublicationDate(e.target.value)
-                                }} />
-                                 <label>Pages</label>
-                                <input type="text" name="pages" onChange={(e) => {
-                                        setPages(e.target.value)
-                                }} />
-                                 <label>Rating</label>
-                                <input type="text" name="rating" onChange={(e) => {
-                                        setRating(e.target.value)
-                                }} />
-                                 <label>Type</label>
-                                <input type="text" name="type" onChange={(e) => {
-                                        setType(e.target.value)
-                                }} />
-                                 <label>Genres</label>
-                                <input type="text" name="genres" onChange={(e) => {
-                                        setGenres(e.target.value)
-                                }} />
+                <div>  <HamMenu />
+                        <div className="criteria" id="bodycheckbox">
+                        <h1 className="head">All books</h1>
+                                <input type="checkbox" className="toggle1" id="A2" onChange={handleCheckboxChange}  /> <label>A2</label>
+                             
+                                <input type="checkbox" className="toggle1" id="B1" onChange={handleCheckboxChange}/> <label>B1</label>
+                              
+                                <input type="checkbox" className="toggle1" id="B2" onChange={handleCheckboxChange} /> <label>B2</label>
+                               
+                                <input type="checkbox" className="toggle1" id="C1" onChange={handleCheckboxChange} /> <label>C1</label>
                         </div>
-                        <button onClick={submitContextEn} >Submin</button>
                         <div className="list" >
-                                {bookNameList.map((val) => {
+                                {toDisplayBookNameList.map((val) => {
                                         return (
-
                                                 <div className="card-container">
-
                                                         <img src={require(`../../books/${val.bookName}.jpg`).default} className='pictures' alt="" />
                                                         <div className="desc">
                                                                 <Link to={{
@@ -116,17 +91,14 @@ function DataBase() {
                                                                         Title: {val.bookName}
                                                                 </Link>
                                                                 <h3>Author: {val.Author}</h3>
-                                                                <h3>Rate: {val.rating}/5</h3>
+                                                                <h3>Level: {val.level}</h3>
+                                                                <h3>Genres: {val.genres}</h3>
+                                                                <h3>Type: {val.type}</h3>
                                                         </div>
-
                                                 </div>
-
-
                                         );
-                                })};
-
+                                })}
                         </div>
-
                 </div>
 
         );

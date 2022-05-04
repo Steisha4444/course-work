@@ -17,47 +17,101 @@ font-size: 25px;
     display: grid;
     margin: 20px 0 50px 0;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 1fr;
-    grid-gap: 1em;
+    grid-gap: 0.2em;
 }
 
 .card-container {
-    width: 250px;
+    width: 20vw;
+    height: 38vw;
     border: 1px solid rgba(0,0,0,.125);
-    margin: 0 auto;
+    margin: 1.5vw auto;
     border-radius: 5px;
     overflow: hidden;
+    line-height: 1;
 }
 .desc {
-    height: 150px;
+    height: 18vw;
     padding: 0.5em;
+    background-color: black;
 }
 
 .desc a {
-    font-size: 1em;    
+    font-size: 1.2vw;    
     font-weight: 400;
+    background-color: transparent;
 }
 .desc h3, p {
     font-weight: 300;
+    background-color: transparent;
 }
 
 .desc h3 {
     color: #005299 !important;
-    font-size: 1em;
+    font-size: 1vw;
     padding: 10px 0 10px 0;
     z-index: 55;
+    background-color: transparent;
 }
 
-.desc p {
-    color: #6c757d;
-}
 
+.head{
+    margin: 2vw  0vw 2vw 4vw ;
+  
+}
 .pictures {
-    width: 100%;
-    height: 250px;
+    width: 20vw;
+    height: 22vw;
     object-fit: cover;
     justify-content: center;
     padding-left: 0%;
+    filter: drop-shadow(5px 5px 10px #005299);
+
+ 
+}
+#bodycheckbox{
+    display: grid;
+    margin: 20px 0 50px 0;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 0.2em;
+    grid-template-columns:27vw 4vw 4vw 4vw 4vw  4vw 4vw 4vw 4vw;
+   
 }
 
+#bodycheckbox .toggle1 {
+    background: rgb(144, 167, 182);
+    width: 3vw;
+    height: 1.5vw;
+    border-radius: 100px;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    cursor: pointer;
+    float: left;
+   
+    margin-top:3.5vw;
+}
 
+#bodycheckbox label{
+    margin-top:2vw;
+}
+#bodycheckbox .toggle1:after {
+    content: "";
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1) 100%);
+    display: block;
+    height: 1.5vw;
+    width: 1.5vw;
+    border-radius: 100%;
+    position: absolute;
+    left: 0px;
+    transform: scale(0.9);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+#bodycheckbox .toggle1:checked {
+    background: rgb(192, 220, 238);
+}
+#bodycheckbox .toggle1:checked:after {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    left: 1.5vw;
+}
